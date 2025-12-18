@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekow Markin - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .logo span {
+            color: #f97316;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #64748b;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #1e293b;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #f97316;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-hire {
+            padding: 10px 24px;
+            background: #1e293b;
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hire:hover {
+            background: #334155;
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #fff7ed 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            right: 80px;
+            width: 300px;
+            height: 300px;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 80px;
+            left: 80px;
+            width: 400px;
+            height: 400px;
+            background: rgba(148, 163, 184, 0.15);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #ffedd5;
+            color: #ea580c;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: #1e293b;
+        }
+
+        .hero-title span {
+            color: #f97316;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 16px 32px;
+            background: #1e293b;
+            color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #334155;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(30, 41, 59, 0.2);
+        }
+
+        .btn-secondary {
+            padding: 16px 32px;
+            border: 2px solid #e2e8f0;
+            color: #475569;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1e293b;
+            transform: translateY(-3px);
+        }
+
+        .hero-social {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-social span {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .social-line {
+            width: 48px;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: #f97316;
+            color: #f97316;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-wrapper {
+            position: relative;
+        }
+
+        .image-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #fb923c, #ea580c);
+            border-radius: 24px;
+            transform: rotate(6deg) scale(1.05);
+            opacity: 0.2;
+        }
+
+        .profile-image {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            width: 96px;
+            height: 96px;
+            background: #f97316;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        .experience-badge span {
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .highlight-card {
+            padding: 32px;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .highlight-icon {
+            width: 48px;
+            height: 48px;
+            background: #ffedd5;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: #f97316;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover .highlight-icon {
+            background: #f97316;
+            color: white;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .highlight-desc {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .skills-content h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .skills-content p {
+            color: #64748b;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: #475569;
+        }
+
+        .skill-percent {
+            color: #64748b;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #f1f5f9;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            border-radius: 50px;
+            transition: width 1s ease;
+        }
+
+        .skills-image {
+            position: relative;
+        }
+
+        .skills-image-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #ffedd5, #f1f5f9);
+            border-radius: 24px;
+            transform: rotate(3deg);
+        }
+
+        .skills-image img {
+            position: relative;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+            background: #f8fafc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-icon.blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .service-icon.purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .service-icon.orange { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .service-icon.green { background: linear-gradient(135deg, #22c55e, #16a34a); }
+        .service-icon.red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .service-icon.pink { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Work Section */
+        .work {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 24px;
+            background: #f1f5f9;
+            color: #64748b;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: #1e293b;
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #f8fafc;
+        }
+
+        .project-image {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .project-tag {
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 0.75rem;
+            border-radius: 50px;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .project-description {
+            color: #cbd5e1;
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-link {
+            color: white;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #fb923c;
+        }
+
+        .project-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #475569;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: #0f172a;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+
+        .contact::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+
+        .contact .section-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-description {
+            color: #94a3b8;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fb923c;
+        }
+
+        .contact-label {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .contact-value {
+            font-weight: 500;
+        }
+
+        .contact-social {
+            margin-top: 40px;
+        }
+
+        .contact-social p {
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .contact-social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-social-link {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+
+        .contact-social-link:hover {
+            background: #f97316;
+            color: white;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-input,
+        .form-textarea {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #64748b;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #f97316;
+        }
+
+        .form-textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        .btn-submit {
+            padding: 16px 32px;
+            background: #f97316;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 32px 0;
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-content span {
+            color: white;
+        }
+
+        .footer-heart {
+            color: #ef4444;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .hero-description {
+                margin: 0 auto 32px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-social {
+                justify-content: center;
+            }
+
+            .profile-image {
+                width: 300px;
+                height: 300px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-section {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 24px;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Ekow Markin<span>.</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="btn-hire">Hire Me</a>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">Welcome to my portfolio</span>
+                    <h1 class="hero-title">Hi, I'm <span>Ekow Markin</span></h1>
+                    <h2 class="hero-subtitle">Full-Stack Developer & UI/UX Designer</h2>
+                    <p class="hero-description">
+                        I craft beautiful, user-centered digital experiences that combine stunning design with robust functionality. Passionate about creating products that make a difference.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#work" class="btn-primary">
+                            View My Work <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="https://www.resumecoach.com/ls/cv-builder/v2/?utm_source=bing&utm_medium=cpc&utm_campaign=458224122&utm_term=europass&utm_adgroup=1141294745749220&utm_network=o&utm_device=c&utm_matchtype=p&utm_loc_physical_ms=95545&msclkid=5b394ab3f5561c16e7cc23944dc58121/view" target="_blank" class="btn-secondary">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                    <div class="hero-social">
+                        <span>Follow me</span>
+                        <div class="social-line"></div>
+                        <div class="social-links">
+                            <a href="https://github.com" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <div class="image-bg"></div>
+                        <div class="profile-image">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face" alt="Ekow Markin">
+                        </div>
+                        <div class="experience-badge">
+                            5+ <span>Years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">About Me</span>
+                <h2 class="section-title">Passionate about creating digital experiences</h2>
+                <p class="section-description">
+                    I'm a creative developer who loves turning ideas into reality through clean code and thoughtful design.
+                </p>
+            </div>
+
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="highlight-title">Clean Code</h4>
+                    <p class="highlight-desc">Writing maintainable, scalable code</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4 class="highlight-title">UI/UX Design</h4>
+                    <p class="highlight-desc">Creating beautiful interfaces</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 class="highlight-title">Fast Delivery</h4>
+                    <p class="highlight-desc">Efficient project completion</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="highlight-title">Collaboration</h4>
+                    <p class="highlight-desc">Working well with teams</p>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <div class="skills-content">
+                    <h3>My Skills</h3>
+                    <p>
+                        With years of experience in web development, I've honed my skills across various technologies and frameworks. I'm always eager to learn new tools and stay updated with industry trends.
+                    </p>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML5 & CSS3</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">React</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Node.js</span>
+                                <span class="skill-percent">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">UI/UX Design</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-image">
+                    <div class="skills-image-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Working">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Services</span>
+                <h2 class="section-title">What I can do for you</h2>
+                <p class="section-description">
+                    I offer a wide range of services to help bring your digital vision to life
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon blue">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">
+                        Building responsive, fast, and modern websites using the latest technologies and best practices.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon purple">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Mobile-First Design</h3>
+                    <p class="service-description">
+                        Creating seamless experiences across all devices with mobile-first responsive design approach.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon orange">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-description">
+                        Designing intuitive and beautiful user interfaces that enhance user experience and engagement.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon green">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-title">Backend Development</h3>
+                    <p class="service-description">
+                        Building robust server-side applications and APIs to power your web applications.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon red">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="service-title">SEO Optimization</h3>
+                    <p class="service-description">
+                        Optimizing websites for search engines to improve visibility and organic traffic.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon pink">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="service-title">Digital Marketing</h3>
+                    <p class="service-description">
+                        Strategic digital marketing solutions to grow your online presence and reach.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work" id="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Portfolio</span>
+                <h2 class="section-title">Featured Work</h2>
+                <p class="section-description">
+                    A selection of my recent projects and creative work
+                </p>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-tab active">All</button>
+                <button class="filter-tab">Web Development</button>
+                <button class="filter-tab">UI/UX Design</button>
+                <button class="filter-tab">Mobile App</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Tribute Page -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=600&h=400&fit=crop" alt="Tribute Page">
+                    </div>
+                    <span class="project-category">Web Development</span>
+                    <div class="project-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">Responsive</span>
+                        </div>
+                        <h3 class="project-title">Tribute Page</h3>
+                        <p class="project-description">A responsive tribute page honoring a notable figure with clean design and engaging content layout.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Page -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Restaurant Website">
+                    </div>
+                    <span class="project-category">Web Development</span>
+                    <div class="project-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">Restaurant Website</h3>
+                        <p class="project-description">A modern restaurant website featuring menu display, reservation system, and responsive design.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music Store -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="Music Store">
+                    </div>
+                    <span class="project-category">Web Development</span>
+                    <div class="project-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">Music Store</h3>
+                        <p class="project-description">An e-commerce platform for music products with product catalog, shopping cart, and checkout functionality.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Platform -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="E-Commerce Platform">
+                    </div>
+                    <span class="project-category">Web Development</span>
+                    <div class="project-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">A modern e-commerce platform with seamless checkout and inventory management.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance Dashboard -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Finance Dashboard">
+                    </div>
+                    <span class="project-category">UI/UX Design</span>
+                    <div class="project-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Charts</span>
+                        </div>
+                        <h3 class="project-title">Finance Dashboard</h3>
+                        <p class="project-description">Clean and intuitive dashboard for tracking financial metrics and analytics.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Travel Booking App -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop" alt="Travel Booking App">
+                    </div>
+                    <span class="project-category">Mobile App</span>
+                    <div class="project-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                        </div>
+                        <h3 class="project-title">Travel Booking App</h3>
+                        <p class="project-description">Mobile-first travel booking application with real-time availability.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Contact</span>
+                <h2 class="section-title">Let's work together</h2>
+                <p class="section-description">
+                    Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="contact-label">Email</p>
+                            <p class="contact-value">hello@ekowmarkin.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="contact-label">Phone</p>
+                            <p class="contact-value">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p class="contact-label">Location</p>
+                            <p class="contact-value">San Francisco, CA</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <p>Follow me on social media</p>
+                        <div class="contact-social-links">
+                            <a href="https://github.com" target="_blank" class="contact-social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="contact-social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="contact-social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="contact-social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <input type="text" class="form-input" placeholder="Your Name" required>
+                    <input type="email" class="form-input" placeholder="Your Email" required>
+                    <textarea class="form-textarea" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-submit">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 <span>Ekow Markin</span>. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart footer-heart"></i> using HTML5 & CSS3</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Project filtering functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.filter-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Filter logic would go here
+                // For now, we'll just log the category
+                console.log(`Filtering by: ${tab.textContent}`);
+            });
+        });
+    </script>
+
+</body>
+</html>
